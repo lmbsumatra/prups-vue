@@ -1,0 +1,59 @@
+[
+  {
+    "id": 0,
+    "name": "Frontend with ReactJS",
+    "icon": "",
+    "techStack": [
+      "ReactJS",
+      "TailwindCSS",
+      "Redux Toolkit",
+      "Zod",
+      "Axios",
+      "React Router",
+      "Vite",
+      "TypeScript"
+    ],
+    "steps": [
+      {
+        "id": 0,
+        "label": "Create Vite Project",
+        "command": ["npm create vite@latest my-app"],
+        "additional": [
+          "Choose: react, typescript",
+          "Navigate to project directory: cd my-app"
+        ],
+        "codeBlock": ""
+      },
+      {
+        "id": 1,
+        "label": "Install Dependencies",
+        "command": ["npm install"],
+        "additional": [],
+        "codeBlock": ""
+      },
+      {
+        "id": 2,
+        "label": "Install Additional Packages",
+        "command": [
+          "npm install tailwindcss zod axios react-router-dom @reduxjs/toolkit react-redux"
+        ],
+        "additional": [],
+        "codeBlock": ""
+      },
+      {
+        "id": 3,
+        "label": "Setup TailwindCSS",
+        "command": ["npm install @tailwindcss/vite", "npx tailwindcss init -p"],
+        "additional": [],
+        "codeBlock": ""
+      },
+      {
+        "id": 4,
+        "label": "Configure TailwindCSS",
+        "command": [],
+        "additional": ["Add to index.css and update vite.config.ts"],
+        "codeBlock": "@import \"tailwindcss\";\nimport tailwindcss from \"@tailwindcss/vite\";\n\nexport default {\n  plugins: [react(), tailwindcss()]\n}"
+      }
+    ]
+  }
+]

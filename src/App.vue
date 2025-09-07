@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const techStack = ["ReactJS", "TailwindCSS", "Redux Toolkit", "Zod", "Axios", "React Router", "Vite", "TypeScript"]
+import type { Guide } from './schema/guide.schema';
+import guidesData from "../public/assets/guides.json"
+import { ref } from 'vue';
+
+const guides = ref<Guide[]>(guidesData)
 </script>
 
 <template>
@@ -12,30 +16,49 @@ const techStack = ["ReactJS", "TailwindCSS", "Redux Toolkit", "Zod", "Axios", "R
         projects</span>
     </div>
 
-    <div class="bg-white p-8 rounded-2xl shadow-xl flex flex-col gap-2">
+    <div v-for="guide in guides" :key="guide.id" class="bg-white p-8 rounded-2xl shadow-xl flex flex-col gap-4">
       <!-- header -->
-      <h1 class="text-3xl font-bold text-blue-900">Frontend React Projects</h1>
+      <h1 class="text-3xl font-bold text-blue-900">{{ guide.name }}</h1>
+
       <!-- tech stack -->
-      <div class="p-4 bg-neutral-50/50 rounded-r-md border-l-4 border-blue-700 flex flex-col gap-2">
+      <div class="p-4 bg-neutral-50 rounded-r-md border-l-4 border-blue-700 flex flex-col gap-2">
         <h3 class="text-xl text-blue-900 font-bold">Tech Stack</h3>
-        <!-- tech stack list -->
         <div class="flex gap-4 flex-wrap">
-          <div v-for="(tech, i) in techStack" :key="i">
+          <div v-for="(tech, i) in guide.techStack" :key="i">
             <p class="bg-blue-100 text-blue-900 font-medium px-4 py-1 rounded-full">
               {{ tech }}
             </p>
           </div>
         </div>
       </div>
-      <div class="flex flex-row gap-4">
+
+      <!-- steps -->
+      <div v-for="(step, index) in guide.steps" :key="step.id || index" class="flex flex-row gap-4">
         <div
           class="h-10 w-10 leading-0 text-neutral-50 font-bold flex justify-center items-center rounded-full bg-blue-900">
-          1</div>
-        <div class="bg-neutral-50/50 p-2 w-full rounded-md flex flex-col gap-2">
-          <h3 class="text-blue-900 font-medium">Create Vite Project</h3>
-          <div class="bg-slate-900/90 p-2 w-full rounded-md">
-            <p class="text-neutral-50">npm create vite@latest my-app</p>
+          {{ index + 1 }}
+        </div>
+        <div class="bg-neutral-50 p-4 w-full rounded-md flex flex-col gap-2">
+          <h3 class="text-blue-900 font-medium">{{ step.label }}</h3>
+
+          <!-- command -->
+          <div v-if="step.command?.length" class="bg-slate-900/90 p-2 w-full rounded-md">
+            <p v-for="(cmd, i) in step.command" :key="i" class="text-neutral-50">
+              {{ cmd }}
+            </p>
           </div>
+
+          <!-- additional notes -->
+          <div v-if="step.additional?.length" class="bg-neutral-200/50 p-2 w-full rounded-md">
+            <p v-for="(note, i) in step.additional" :key="i" class="text-blue-900 text-sm">
+              {{ note }}
+            </p>
+          </div>
+
+          <!-- code block -->
+          <pre v-if="step.codeBlock" class="bg-slate-900/90 p-2 rounded-md text-neutral-50">
+{{ step.codeBlock }}
+        </pre>
         </div>
       </div>
     </div>
