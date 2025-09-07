@@ -21,7 +21,7 @@ const copyToClipboard = async (text: string | string[]) => {
     <!-- Header -->
     <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
       <h1
-        class="text-6xl font-bold text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text py-3">
+        class="text-6xl font-bold text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text py-3">
         Project Setup Guide
       </h1>
       <span class="text-gray-700">Step-by-step instructions for setting up your development projects</span>
@@ -31,11 +31,11 @@ const copyToClipboard = async (text: string | string[]) => {
     <div v-for="guide in guides" :key="guide.id"
       class="bg-white p-8 rounded-2xl shadow-lg flex flex-col gap-6 hover:shadow-2xl transition-shadow duration-300">
       <!-- Guide Title -->
-      <h1 class="text-3xl font-bold text-indigo-900">{{ guide.name }}</h1>
+      <h1 class="text-3xl font-bold text-blue-900">{{ guide.name }}</h1>
 
       <!-- Tech Stack -->
-      <div class="p-4 bg-gray-50 rounded-r-md border-l-4 border-indigo-500 flex flex-col gap-2">
-        <h3 class="text-xl font-bold text-indigo-900">Tech Stack</h3>
+      <div class="p-4 bg-gray-50 rounded-r-md border-l-4 border-blue-500 flex flex-col gap-2">
+        <h3 class="text-xl font-bold text-blue-900">Tech Stack</h3>
         <div class="flex gap-4 flex-wrap">
           <div v-for="(tech, i) in guide.techStack" :key="i">
             <p :class="`px-4 py-1 rounded-full font-medium bg-gray-100 text-gray-800`">
@@ -49,7 +49,7 @@ const copyToClipboard = async (text: string | string[]) => {
       <div v-for="(step, index) in guide.steps" :key="step.id || index" class="flex flex-row gap-4">
         <!-- Step number -->
         <div v-if="!step.isOptional"
-          class="h-10 w-10 leading-0 text-white font-bold flex justify-center items-center rounded-full bg-indigo-900">
+          class="h-10 w-10 leading-0 text-white font-bold flex justify-center items-center rounded-full bg-blue-900">
           {{guide.steps.filter(s => !s.isOptional).indexOf(step) + 1}}
         </div>
 
@@ -58,7 +58,7 @@ const copyToClipboard = async (text: string | string[]) => {
           'p-4 w-full rounded-md flex flex-col gap-2',
           step.isOptional ? '' : 'bg-neutral-50 border-1 border-neutral-100'
         ]">
-          <h3 class="font-medium text-indigo-900">
+          <h3 class="font-medium text-blue-900">
             <span v-if="step.isOptional">Additional notes: </span>{{ step.label }}
           </h3>
 
