@@ -22,14 +22,16 @@
           "Choose: react, typescript",
           "Navigate to project directory: cd my-app"
         ],
-        "codeBlock": ""
+        "codeBlock": "",
+        "isOptional": false
       },
       {
         "id": 1,
         "label": "Install Dependencies",
         "command": ["npm install"],
         "additional": [],
-        "codeBlock": ""
+        "codeBlock": "",
+        "isOptional": false
       },
       {
         "id": 2,
@@ -38,21 +40,253 @@
           "npm install tailwindcss zod axios react-router-dom @reduxjs/toolkit react-redux"
         ],
         "additional": [],
-        "codeBlock": ""
+        "codeBlock": "",
+        "isOptional": false
       },
       {
         "id": 3,
         "label": "Setup TailwindCSS",
         "command": ["npm install @tailwindcss/vite", "npx tailwindcss init -p"],
         "additional": [],
-        "codeBlock": ""
+        "codeBlock": "",
+        "isOptional": false
       },
       {
         "id": 4,
         "label": "Configure TailwindCSS",
         "command": [],
-        "additional": ["Add to index.css and update vite.config.ts"],
-        "codeBlock": "@import \"tailwindcss\";\nimport tailwindcss from \"@tailwindcss/vite\";\n\nexport default {\n  plugins: [react(), tailwindcss()]\n}"
+        "additional": [
+          "Add to index.css: @import \"tailwindcss\";",
+          "Update vite.config.ts: import tailwindcss from \"@tailwindcss/vite\"; plugins: [react(), tailwindcss()]"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 5,
+        "label": "Adding ShadCN",
+        "command": ["npx shadcn@latest init"],
+        "additional": ["Example usage: npx shadcn@latest add button"],
+        "codeBlock": "",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Backend with Node/Express & MySQL",
+    "icon": "",
+    "techStack": [
+      "NodeJS",
+      "ExpressJS",
+      "Zod",
+      "TypeScript",
+      "Sequelize",
+      "MySQL",
+      "Nodemon"
+    ],
+    "steps": [
+      {
+        "id": 0,
+        "label": "Initialize Project",
+        "command": ["npm init -y"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 1,
+        "label": "Install Dependencies",
+        "command": ["npm install express zod sequelize mysql2 dotenv cors"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 2,
+        "label": "Install Dev Dependencies",
+        "command": [
+          "npm install --save-dev typescript tsx @types/express @types/node"
+        ],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 3,
+        "label": "Setup Sequelize & tsconfig",
+        "command": [],
+        "additional": [
+          "Configure Sequelize with MySQL",
+          "Setup tsconfig.json",
+          "Modify package.json as needed"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Backend with Node/Express & MongoDB",
+    "icon": "",
+    "techStack": [
+      "NodeJS",
+      "ExpressJS",
+      "Zod",
+      "TypeScript",
+      "Mongoose",
+      "MongoDB",
+      "Nodemon"
+    ],
+    "steps": [
+      {
+        "id": 0,
+        "label": "Initialize Project",
+        "command": ["npm init -y"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 1,
+        "label": "Install Dependencies",
+        "command": ["npm install express zod mongoose mongodb dotenv cors"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 2,
+        "label": "Install Dev Dependencies",
+        "command": [
+          "npm install --save-dev typescript tsx @types/express @types/node"
+        ],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 3,
+        "label": "Setup tsconfig and Package",
+        "command": [],
+        "additional": ["Setup tsconfig.json", "Modify package.json as needed"],
+        "codeBlock": "",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Laravel Project",
+    "icon": "",
+    "techStack": ["Laravel", "PHP", "MySQL", "Laravel Breeze"],
+    "steps": [
+      {
+        "id": 0,
+        "label": "Create Laravel Project",
+        "command": ["laravel new project-name", "php artisan serve"],
+        "additional": ["npm install"],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 1,
+        "label": "Fix Port Issues",
+        "command": [],
+        "additional": ["Edit php.ini: change EGPCS to GPCS if needed"],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 2,
+        "label": "Database Migration",
+        "command": ["php artisan migrate"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 3,
+        "label": "Install Laravel Breeze",
+        "command": [
+          "composer require laravel/breeze",
+          "php artisan breeze:install"
+        ],
+        "additional": ["Choose Blade when prompted"],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 4,
+        "label": "Optional Email Verification",
+        "command": [],
+        "additional": [
+          "Add 'implements MustVerifyEmail' to User model",
+          "Install Mailpit and configure SMTP port"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 5,
+        "label": "ORM & Pagination",
+        "command": [],
+        "additional": [
+          "Use Eloquent ORM and import different pagination styles as needed"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Frontend with VueJS",
+    "icon": "",
+    "techStack": ["VueJS", "TypeScript", "TailwindCSS", "Pinia", "Vite"],
+    "steps": [
+      {
+        "id": 0,
+        "label": "Create Vite Project",
+        "command": ["npm create vite@latest proj-name"],
+        "additional": ["Choose: vue, typescript"],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 1,
+        "label": "Setup TailwindCSS",
+        "command": ["npm install tailwindcss @tailwindcss/vite"],
+        "additional": [
+          "Add tailwindcss() to Vite config plugins",
+          "Add '@import \"tailwindcss\";' to main.css"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 2,
+        "label": "Install Pinia",
+        "command": ["npm install pinia"],
+        "additional": [
+          "In main.ts, import { createPinia } from 'pinia'",
+          "Adjust app: App.use(createPinia()); App.mount('#app')"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 3,
+        "label": "TSX Parts in Vue",
+        "command": [],
+        "additional": [
+          "Script block for imports",
+          "Template block for HTML",
+          "Style block for CSS"
+        ],
+        "codeBlock": "",
+        "isOptional": true
       }
     ]
   }

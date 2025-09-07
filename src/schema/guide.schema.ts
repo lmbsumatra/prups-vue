@@ -9,7 +9,7 @@ const steps = z.object({
     command: z.array(z.string()).optional(),
     additional: z.array(z.string()).optional(),
     codeBlock: z.string().optional(),
-
+    isOptional: z.boolean()
 })
 
 const guideSchema = z.object({
