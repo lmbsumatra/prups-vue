@@ -19,7 +19,7 @@ const copyToClipboard = async (text: string | string[]) => {
 <template>
   <div class="bg-violet-50 p-5 flex flex-col gap-8">
     <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
-      <h1 class="text-6xl font-bold text-transparent bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text py-3">
+      <h1 class="text-6xl font-bold text-transparent bg-gradient-to-r from-sky-500 to-violet-500 bg-clip-text py-3">
         Project Setup Guide
       </h1>
       <span class="text-neutral-700">Step-by-step instructions for setting up your development
@@ -31,7 +31,7 @@ const copyToClipboard = async (text: string | string[]) => {
       <h1 class="text-3xl font-bold text-sky-900">{{ guide.name }}</h1>
 
       <!-- tech stack -->
-      <div class="p-4 bg-neutral-50 rounded-r-md border-l-4 border-sky-700 flex flex-col gap-2">
+      <div class="p-4 bg-neutral-50 rounded-r-md border-l-4 border-sky-500 flex flex-col gap-2">
         <h3 class="text-xl text-sky-900 font-bold">Tech Stack</h3>
         <div class="flex gap-4 flex-wrap">
           <div v-for="(tech, i) in guide.techStack" :key="i">
@@ -69,7 +69,7 @@ const copyToClipboard = async (text: string | string[]) => {
 
           <!-- additional notes -->
           <div v-if="step.additional?.length"
-            class="p-4 bg-yellow-100 rounded-r-md border-l-4 border-yellow-700 flex flex-col gap-2">
+            class="p-4 bg-yellow-100 rounded-r-md border-l-4 border-yellow-500 flex flex-col gap-2">
             <p v-for="(note, i) in step.additional" :key="i" class="text-neutral-900 text-sm">
               {{ note }}
             </p>
