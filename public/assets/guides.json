@@ -287,6 +287,50 @@
         ],
         "codeBlock": "",
         "isOptional": true
+      },
+      {
+        "id": 4,
+        "label": "Installing Vue-router",
+        "command": ["npm install vue-router"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 5,
+        "label": "Create router",
+        "command": [],
+        "additional": [
+          "Add/On /router/index.ts: Make routes object with each path, name, and component. (Optional: use defineAsyncComponent on view import for lazy loading)",
+          "Import that router on main.ts and use it: createApp(app).use(router)",
+          "Use <router-view /> on App.vue"
+        ],
+        "codeBlock": "",
+        "isOptional": false
+      },
+      {
+        "id": 6,
+        "label": "Using ShadCN with Vue + Vite",
+        "command": ["https://shadcn-vue.com/docs/installation/vite.html"],
+        "additional": ["For better steps, follow the website above."],
+        "codeBlock": "",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "React Native,  Expo-cli",
+    "icon": "",
+    "techStack": ["React Native", "Expo-cli"],
+    "steps": [
+      {
+        "id": 0,
+        "label": "Create React Native with Expo-cli Project",
+        "command": ["npx create-expo-app@latest app-name"],
+        "additional": [],
+        "codeBlock": "",
+        "isOptional": false
       }
     ]
   }
