@@ -315,6 +315,14 @@
         "additional": ["For better steps, follow the website above."],
         "codeBlock": "",
         "isOptional": false
+      },
+      {
+        "id": 7,
+        "label": "Form with Validation (Zod + Vee Validate)",
+        "command": ["npm install vee-validate zod"],
+        "additional": ["For better steps, follow the website above."],
+        "codeBlock": "",
+        "isOptional": false
       }
     ]
   },

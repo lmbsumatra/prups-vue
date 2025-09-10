@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import type { Guide } from '../schema/guide.schema';
-import guidesData from "../../public/assets/guides.json"
-import { computed, reactive, } from 'vue';
+import { computed,  } from 'vue';
 import { useRoute } from 'vue-router';
 import Button from '../components/ui/button/Button.vue';
+import { useGuidesStore } from '../stores/guideStore';
+import type { Guide } from '../schema/guide.schema';
 
-const guides = reactive<Guide[]>(guidesData)
+const guidesStore = useGuidesStore();
+const guides = computed<Guide[]>(() => guidesStore.guides);
 
 const route = useRoute();
 
 const id = Number(route.params.id)
 
-
-const currentGuide = computed(() =>
-    guides.find((guide) => guide.id === id)
+const currentGuide = computed<Guide | undefined>(() =>
+    guides.value.find((guide) => guide.id === id)
 );
 
 const copyToClipboard = async (text: string | string[]) => {
@@ -71,21 +71,21 @@ const copyToClipboard = async (text: string | string[]) => {
                     </h3>
 
                     <!-- command block -->
-                    <div v-if="step.command?.length"
+                    <div v-if="step.commands?.length"
                         class="bg-gray-900 text-gray-50 p-2 w-full rounded-md relative hover:bg-gray-800 transition-colors duration-200 text-sm">
-                        <p v-for="(cmd, i) in step.command" :key="i">
+                        <p v-for="(cmd, i) in step.commands" :key="i">
                             {{ cmd }}
                         </p>
-                        <button @click="copyToClipboard(step.command as string[])"
+                        <button @click="copyToClipboard(step.commands as string[])"
                             class="ml-2 bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm absolute top-1 right-1">
                             Copy
                         </button>
                     </div>
 
                     <!-- addt notes -->
-                    <div v-if="step.additional?.length"
+                    <div v-if="step.additionalInfo?.length"
                         class="p-4 bg-yellow-50 rounded-r-md border-l-4 border-yellow-500 flex flex-col gap-2">
-                        <p v-for="(note, i) in step.additional" :key="i" class="text-neutral-700 text-sm">
+                        <p v-for="(note, i) in step.additionalInfo" :key="i" class="text-neutral-700 text-sm">
                             {{ note }}
                         </p>
                     </div>
